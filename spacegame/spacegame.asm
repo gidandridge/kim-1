@@ -1,4 +1,4 @@
-﻿; spacegame for kim-1, by g.dandridge
+; spacegame for kim-1, by g.dandridge
 ;
 ; vim syntax asm_ca65 (https://github.com/maxbane/vim-asm_ca65)
 ; for vasm6502_oldstyle assembler (http://sun.hasenbraten.de/vasm/)
