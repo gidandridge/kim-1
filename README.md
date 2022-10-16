@@ -25,9 +25,9 @@ Human readable machine code is provided in hexadecimal format. Allowing you to r
 
 Typically I use this command:
 ```
-hexdump -C <source.bin>
+hexdump -C <source.bin> > <destination.hex>
 ```
-Substituting <source.bin> for the name of a binary file containing the previously complied assembly language. I then edit file the to remove the unneeded ASCII notation and also update the address indexes to match the intended target location of the code in RAM.
+Substituting <source.bin> for the name of a binary file containing the previously complied assembly language and <destination.hex> with the destination file name. I then edit the destination file removing the unneeded ASCII notation and also updating the address indexes to match the intended target location of the code in RAM.
 
 ### Paper tape (ptp)
 Finally paper tape files are provided. These are ASCII files in the MOS Technologies paper tape format supported by the KIM-1. The KIM-1 can load these files over a suitable RS232 interface using the built in monitor ROM. Use the 'L' command and then send the file as ASCII. Note during transmission the KIM-1 will require a short delay after each character and slightly longer delay at the end of each line.
