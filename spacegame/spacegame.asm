@@ -73,7 +73,7 @@ wait:
   iny				; and increment y again, moving it to point to next characters position on 7 segment display
   inx				; increment x, offset pointer for display ram, to next character in display ram
   bmi show			; is x zero (end of display ram), no so go back and display next character
-  dec game_speed		; decrement the speed variable
+  dec game_speed		; decrement the game speed variable
   bne light			; did it reach zero, no loop back to light and redraw display all over again
   lda #%00000000		; load zero into accumulator, for port a direction data, 0=input
   sta padd			; and store into port a data direction register, set all lines to inputs
