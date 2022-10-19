@@ -7,7 +7,7 @@
 ; press key 3 to increase display
 ; press key 0 to decrease display
 
-; setup pointers to kim routines and registers
+; setup pointers to kim-1 routines and registers
 
 getkey          = $1F6A         ; getkey, address to scan key routine in kim-1 monitor
 sad             = $1740         ; 6530-002, side b data, used to set segments on 7 segment display
@@ -21,6 +21,7 @@ display_bottom  = $0F		; bottom of display ram-1 location
 delay_disp	= $17		; display delay variable
 display_speed	= $18		; display speed variable
 volume_level	= $19		; volume level variable
+
   .org $0200
 
   cld				; clear decimal mode, required for getkey kim-1 routine
@@ -36,14 +37,14 @@ start:
   lda #$00			; load accumulator with zero
   sta volume_level		; store it in volume level variable, set initial level to zero
   lda #$FF			; load accumulator with $FF
-  sta delay_disp		; and store it in the delay display variable, used to slow execution in show loop
+  sta delay_disp		; and store it in the delay display variable, used to slow execution in wait loop
 
 slow:
   lda #$09			; load accumulator with $09, smaller=faster, larger=slower
   sta display_speed		; store it in display speed variable, controls update speed of display
 
 light:
-  lda #%01111111			; load bits to control data direction of port B on 6530-002, 0=input, 1=output
+  lda #%01111111		; load bits to control data direction of port B on 6530-002, 0=input, 1=output
   sta padd			; store in port a data direction register, allows output to 7 segment display
   ldy #$08			; load y with $08 to select leftmost character position 7 segment display
   ldx #$FA			; load -6 in x, used as offset pointer for display ram 

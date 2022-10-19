@@ -3,11 +3,9 @@
 ; vim syntax asm_ca65 (https://github.com/maxbane/vim-asm_ca65)
 ; for vasm6502_oldstyle assembler (http://sun.hasenbraten.de/vasm/)
 ;
-; very simple hellow world print loop, outputs over the TTY interface
+; very simple hello world print loop, outputs over the TTY interface
 
-
-
-; setup pointers to KIM-1 monitor functions
+; setup pointers to kim-1 monitor functions
 
 GetCh		= $1E5A			; address of getch routine in kim-1 monitor, gets character from tty into accumulator
 					; note, getch not used in this demo but included for completeness 
